@@ -1,0 +1,35 @@
+services:
+  ml-service:
+    build:
+      context: ./ml-service
+    container_name: interviewiq-ml-service
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+    restart: always
+
+  backend:
+    build:
+      context: ./backend
+    container_name: interviewiq-backend
+    ports:
+      - "5094:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - MlService__Url=http://ml-service:8000
+    depends_on:
+      - ml-service
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - VITE_API_BASE_URL=http://localhost:5094/api
+    container_name: interviewiq-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always

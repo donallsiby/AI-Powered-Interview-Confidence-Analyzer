@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="InterviewIQ.API/InterviewIQ.API.csproj" />
+  <Project Path="InterviewIQ.Application/InterviewIQ.Application.csproj" />
+  <Project Path="InterviewIQ.Domain/InterviewIQ.Domain.csproj" />
+  <Project Path="InterviewIQ.Infrastructure/InterviewIQ.Infrastructure.csproj" />
+</Solution>

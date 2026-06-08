@@ -1,0 +1,41 @@
+# ==========================================
+# InterviewIQ Root GitIgnore
+# ==========================================
+
+# Core & OS
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# IDEs and Editors
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# .NET Backend
+**/bin/
+**/obj/
+backend/InterviewIQ.API/interviewiq.db
+backend/InterviewIQ.API/interviewiq.db-journal
+backend/InterviewIQ.API/interviewiq.db-shm
+backend/InterviewIQ.API/interviewiq.db-wal
+
+# Node.js Frontend
+**/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Python ML Service
+**/__pycache__/
+**/*.pyc
+ml-service/temp/
+ml-service/venv/
+ml-service/.venv/
+ml-service/.pytest_cache/
