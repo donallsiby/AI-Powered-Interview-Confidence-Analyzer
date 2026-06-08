@@ -47,6 +47,8 @@ import { uploadAudioResponse, fetchSessionDetails, clearInterviewError } from '.
 import { AudioRecorder } from './components/InterviewRoom/AudioRecorder';
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5094/api';
+
 // Preset Questions
 const INTERVIEW_QUESTIONS = [
   "Tell me about a challenging technical project you built and the obstacles you overcame.",
@@ -97,7 +99,7 @@ export default function App() {
         ? { name: authName, email: authEmail, password: authPassword, role: 'User' }
         : { email: authEmail, password: authPassword };
       
-      const response = await axios.post(`http://localhost:5094/api/auth/${endpoint}`, payload);
+      const response = await axios.post(`${API_BASE_URL}/auth/${endpoint}`, payload);
       const { userId, name, email, role, token } = response.data;
       
       dispatch(authSuccess({ 
